@@ -1,0 +1,102 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    
+    <meta charset="utf-8" />
+    <title>Network testing</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="../Scripts/ajaxCalls.js"></script>
+    <script>
+        //1. create a leader board screen and methods
+        //2. create a change avatar screen and methods 
+        $(document).ready(function () {
+            let today = new Date().toISOString();
+            var p = {
+                Locale: "hey",
+                NickName: "Trying to push",
+                Email: "trying to push email",
+                ProfilePic: "some picture",
+                Uid: "something else"
+            }
+            var p1 = {
+                Token: "ne",
+                Uid: "sapir"
+            }
+        //https://proj.ruppin.ac.il/bgroup65/prod/api/network/?source=Ion Iliescu&target=Jane Addams&categoryNAME=POLITICS
+            //ajaxCall('GET', "../api/network/?source=Ion Iliescu&target=Jane Addams&categoryNAME=POLITICS", "", success, error);
+            //ajaxCall("POST", "../api/Player", JSON.stringify(p), success, error);
+            //ajaxCall("POST", "../api/PlayerToken", JSON.stringify(p1), success, error);
+            //ajaxCall("POST", "../api/playerWinOrLose?win=1&cashMole=25&uid=0GMoIlsa3Sf75fYLEHxL4occobI2", "", success, error);
+            //ajaxCall("GET", "../api/playerGetPlayer?uid=0GMoIlsa3Sf75fYLEHxL4occobI2", "", success, error);
+            //ajaxCall("POST", "../api/PlayerAvatar?avatarUrl=http://proj.ruppin.ac.il/bgroup65/prod/img/1.png&uid=0GMoIlsa3Sf75fYLEHxL4occobI2", "", success, error);
+            //ajaxCall("POST", "../api/Player?uid=sapir", "", success, error);
+            //var uid = "something else";
+            //ajaxCall("Get", "../api/Player/?uid=" + uid, "", success, error);
+            //ajaxCall("Get", "../api/networkStartAGame/?categoryName=CELEBRITY", "", success, error);
+            //ajaxCall("Get", "../api/networkGetRandomVerteciesFromVertex/?source=Lebron James&categoryName=NBA", "", success, error);
+            //randomVertecies();
+            //Path();
+            //nodeInfo();
+            //getNetwork();
+            //getNewCard();
+            //randomPaths();
+            //webScrape();
+        });
+
+        //***********  newest version  *************
+
+        function getNetwork() {
+           
+            var api = "../api/getNetwork/?categoryNAME=NBA";
+            ajaxCall("Get", api, "", success, error);
+        }
+        function Path() {
+           // var source = "Catelyn Stark";
+           // var target = "Sandor Clegane";
+           //var api = "../api/networkGetPath/?source=" + source + "&target=" + target + "&categoryName=Game_Of_Thrones";
+            var source = "Bob McAdoo";
+            var target = "Terry Dischinger";
+            var api = "../api/networkGetPath/?source=" + source + "&target=" + target + "&categoryNAME=NBA";
+            ajaxCall("Get", api, "", success, error);
+        }
+        function nodeInfo() {
+            var nodeName = "social stratification";
+            //var target = "Sandor Clegane";
+            var api = "../api/VertexGetInfo/?nodeName=" + nodeName + "&categoryName=GENERAL KNOWLEDGE";
+            ajaxCall("Get", api, "", success, error);
+        }
+        function getNewCard() {
+            var nodeName = "Catelyn Stark";
+            //var target = "Sandor Clegane";
+            var api = "../api/networkGetRandomVerteciesFromVertex3/?source=" + nodeName + "&categoryName=Game_Of_Thrones";
+            ajaxCall("Get", api, "", success, error);
+        }
+        function randomVertecies() {
+            ajaxCall("Get", "../api/network/?categoryname=nba", "", success, error);
+        }
+        function randomPaths() {
+            ajaxCall("Get", "../api/network", "", successRandomPaths, error);
+        }
+        function success(data) {
+            console.log(data)
+        }
+        function webScrape() {
+            var source = 'Benjamin Netanyahu';
+            var target = 'Australasian gannet';
+            ajaxCall("Get", "../api/SIXDOW/?source=" + source + "&target=" + target + "", "", success, error);
+
+        }
+        //function successRandomPaths(data) {
+        //    for (var i = 0; i < data.length; i++) {
+        //        console.log(data[i]);
+        //    }
+        //}
+        function error(error) {
+            console.log(error);
+        }
+    </script>
+</head>
+<body>
+    <h1>Hello Networks world</h1>
+</body>
+</html>

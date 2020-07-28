@@ -1,0 +1,40 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+            integrity="sha256-pasqAKBDmFT4eHoN2ndd6lN370kFiGUFyTiUHWhU7k8="
+            crossorigin="anonymous"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.4.1.min.js"></script>
+    <!--<script src="jquery-3.4.1.min.js"></script>-->
+    <script src="../Scripts/jquery-3.3.1.min.js"></script>
+    <script src="../Scripts/ajaxCalls.js"></script>
+    <script>
+        //var dataPost = finalJson;
+        $(document).ready(function () {
+            //console.log(finalJson);
+            data = {
+                nodes: [{ nodeNum: 'reut' }, { nodeNum: 'gal' }, { nodeNum: 'reut' }, { nodeNum: 'miki' }],
+                links: [{ source: 'reut', target: 'gal', connectionType: 'engaged' }]
+            }
+            console.log(data)
+
+            ajaxCall('POST', '../api/fileUpload', "", successCS, errorCS);
+
+        });
+        function successCS(data) {
+            console.log(data)
+        }
+        function errorCS(data) {
+            console.log(data)
+        }
+    </script>
+</head>
+<body init="do()">
+    <div>
+        <h2>index.html</h2>
+    </div>
+</body>
+</html>
